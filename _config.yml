@@ -58,10 +58,10 @@ disqus_shortname: jminj
 # Category descriptions (for archive pages)
 descriptions:
   - cat: C
-    desc: "Posts describing Jekyll setup techniques."
+    desc: Posts describing Jekyll setup techniques.
 
   - cat: Python
-    desc: "Posts describing Jekyll setup techniques."
+    desc: Posts describing Jekyll setup techniques.
 
 # Social icons and sharing options
 #
