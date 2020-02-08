@@ -34,6 +34,7 @@ highlightjs_theme: "monokai-sublime"
 pagination:
   enabled: true
   debug: true
+  collection: 'posts'
   per_page: 5
   permalink: "/page/:num/"
   sort_reverse: true
@@ -44,7 +45,7 @@ jekyll-archives:
     - categories
     - tags
   layout: 'archive'
-  permalinks:
+  permalink:
     category: '/category/:name/'
     tag: '/tag/:name/'
 
