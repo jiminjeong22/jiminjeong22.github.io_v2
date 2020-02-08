@@ -32,9 +32,10 @@ highlightjs_theme: "monokai-sublime"
 # Pagination Settings
 # https://github.com/sverrirs/jekyll-paginate-v2/blob/master/README-GENERATOR.md#site-configuration
 pagination:
+  debug: true
   enabled: true
   per_page: 5
-  permalink: "/page/:num/"
+  permalink: "/page:num/"
   sort_reverse: true
 
 # Archive settings (see https://github.com/jekyll/jekyll-archives/)
@@ -58,7 +59,7 @@ disqus_shortname: jminj
 descriptions:
   - cat: C
     desc: "Posts describing Jekyll setup techniques."
-    
+
   - cat: Python
     desc: "Posts describing Jekyll setup techniques."
 
