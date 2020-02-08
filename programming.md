@@ -5,9 +5,10 @@ permalink: /programming/
 main_nav: true
 ---
 
+
 {% for category in site.categories %}
   {% capture cat %}{{ category | first }}{% endcapture %}
-  {% if cat == "C" %}
+  {% if cat == "C", "Python" %}
   <h2 id="{{cat}}">{{ cat | capitalize }}</h2>
   {% for desc in site.descriptions %}
     {% if desc.cat == cat %}
