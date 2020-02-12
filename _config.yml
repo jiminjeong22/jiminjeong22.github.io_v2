@@ -5,6 +5,9 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate-v2
 
+gems:
+  - jekyll-paginate-v2
+
 
 exclude:
   - "/vendor/"
