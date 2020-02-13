@@ -1,5 +1,8 @@
 # enable error reporting to the console
 set -e
+git add --all
+git commit -a -m "2020"
+git push
 
 # cleanup "_site"
 rm -rf _site
@@ -13,8 +16,6 @@ bundle exec jekyll build
 
 # push
 cd _site
-git config user.email "jminj0204@gmail.com"
-git config user.name "jiminjeong22"
 git add --all
 git commit -a -m "2020"
 git push
