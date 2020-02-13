@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>[파이썬 프로그래밍] Chapter 16. 파일을 활용한 데이터 보관</title>
+  <meta name="description" content="1. 파일에 데이터 저장하기  절대 경로를 사용한 파일 열기&gt;&gt;&gt; f = open('D:/Python37/data/result.txt','w')  상대 경로를 사용한 파일 열기&gt;&gt;&gt; f = open('./data/result.txt', 'w')&gt...">
+  
+  <meta name="author" content="Jimin Jeong">
+  <meta name="copyright" content="&copy; Jimin Jeong 2020">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="1. 파일에 데이터 저장하기  절대 경로를 사용한 파일 열기&gt;&gt;&gt; f = open('D:/Python37/data/result.txt','w')  상대 경로를 사용한 파일 열기&gt;&gt;&gt; f = open('./data/result.txt', 'w')&gt..." />
+  <meta property="og:url" content="http://localhost:4000/python/2019/12/23/pypro-chap16.html">
+  <meta property="og:site_name" content="Coding Space" />
+  <meta property="og:title" content="[파이썬 프로그래밍] Chapter 16. 파일을 활용한 데이터 보관" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/logo.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="[파이썬 프로그래밍] Chapter 16. 파일을 활용한 데이터 보관">
+  <meta name="twitter:description" content="1. 파일에 데이터 저장하기  절대 경로를 사용한 파일 열기&gt;&gt;&gt; f = open('D:/Python37/data/result.txt','w')  상대 경로를 사용한 파일 열기&gt;&gt;&gt; f = open('./data/result.txt', 'w')&gt...">
+  <meta name="twitter:image" content="http://localhost:4000/assets/logo.png">
+  <meta name="twitter:url" content="http://localhost:4000/python/2019/12/23/pypro-chap16.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/python/2019/12/23/pypro-chap16.html">
+	<link rel="alternate" type="application/rss+xml" title="Coding Space" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/logo.png" alt="Coding Space">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+	<li class="nav-link"><a href="/studynote/">Study Note</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Typography</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container " >
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">[파이썬 프로그래밍] Chapter 16. 파일을 활용한 데이터 보관</h1>
+      <p class="info">by <strong>Jimin Jeong</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">December 23, 2019</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/Python">Python</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h2 id="1-파일에-데이터-저장하기">1. 파일에 데이터 저장하기</h2>
+<ul>
+  <li>절대 경로를 사용한 파일 열기
+<code class="highlighter-rouge">&gt;&gt;&gt; f = open('D:/Python37/data/result.txt','w')</code></li>
+  <li>상대 경로를 사용한 파일 열기
+<code class="highlighter-rouge">&gt;&gt;&gt; f = open('./data/result.txt', 'w')</code>
+<code class="highlighter-rouge">&gt;&gt;&gt; f.write('Hello, Chris.\n')</code>
+<code class="highlighter-rouge">&gt;&gt;&gt; f.flush()</code>
+<code class="highlighter-rouge">&gt;&gt;&gt; f.close()</code></li>
+</ul>
+
+<h2 id="2-with문을-활용한-파일의-데이터-읽어오기">2. with문을 활용한 파일의 데이터 읽어오기</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>result_file = open('./data/result.txt','rt')
+
+#readline()에 비해 빠르고 \n을 출력하지 않아 깔끔하다
+for line in result_file:
+	print(line, end='')
+</code></pre></div></div>
+
+<ul>
+  <li>처음부터 다시 파일을 읽고 싶을 때는 seek() 메소드를 사용
+<code class="highlighter-rouge">f.seek(offset, from_what)</code>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#파일의 첫 라인으로 이동하라
+result_file.seek(0,0)
+</code></pre></div>    </div>
+  </li>
+  <li>현재 파일의 위치를 알고 싶을 때는 tell() 메소드를 사용
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; result_file.tell()
+21
+&gt;&gt;&gt; result_file.seek(0,0)
+0
+&gt;&gt;&gt; result_file.tell()
+0
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="3-json-javascript-object-notation-활용하기">3. JSON (JavaScript Object Notation) 활용하기</h2>
+<ul>
+  <li>JSON은 일반적으로 두 개의 구조를 가지고 있다
+    <ol>
+      <li>name과 value 쌍으로 이루어진 집합 타입. (파이썬에서는 사전 타입의 데이터를 의미)</li>
+      <li>순서가 존재하는 값들의 list. (파이썬에서는 리스트 타입을 의미한다)</li>
+    </ol>
+  </li>
+  <li>이 두개의 구조는 JSON 에서는 아래와 같이 객체 (object)와 배열 (array)로 표기할 수 있다
+    <blockquote>
+      <p>객체 (object) : 파이썬의 사전 타입 데이터와 표현 방식이 똑같다<br />
+          (ex) {‘red’:4, ‘blue’: 3}
+배열(array) : 파이썬의 리스트 표현 방식과 똑같다<br />
+          (ex) [1,2,3]</p>
+    </blockquote>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import json
+
+my_info = {'name':'Jenny', 'job': 'programmer', 'language': ['KOR', 'ENG']}
+
+#my_info 직렬화 수행
+json.dumps(my_info) #{"name": "Jenny", "job": "programmer", "language": ["KOR", "ENG"]}
+</code></pre></div></div>
+<p>OR</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>with open('./data/my_info.json','w') as f:
+	json.dump(my_info,f)
+</code></pre></div></div>
+
+<ul>
+  <li>json.load() 함수를 통해 역직렬화 작업을 수행할 수 있다
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>with open('./data/my_info.json','r') as f:
+  new_info = json.load(f)
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="4-json으로-여러-한글-데이터-저장하기">4. JSON으로 여러 한글 데이터 저장하기</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import json
+with open('./data/my_books.json','w', encoding='utf-8') as f:
+	json.dump(books, f, ensure_ascii=False)
+</code></pre></div></div>
+
+</article>
+
+
+
+<section class="tags">
+  <strong>Tags:</strong> <a href="/tag/파이썬">파이썬</a>,&nbsp;<a href="/tag/프로그래밍">프로그래밍</a>
+</section>
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%5D+Chapter+16.+%ED%8C%8C%EC%9D%BC%EC%9D%84+%ED%99%9C%EC%9A%A9%ED%95%9C+%EB%8D%B0%EC%9D%B4%ED%84%B0+%EB%B3%B4%EA%B4%80&u=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2019%2F12%2F23%2Fpypro-chap16.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%5D+Chapter+16.+%ED%8C%8C%EC%9D%BC%EC%9D%84+%ED%99%9C%EC%9A%A9%ED%95%9C+%EB%8D%B0%EC%9D%B4%ED%84%B0+%EB%B3%B4%EA%B4%80&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2019%2F12%2F23%2Fpypro-chap16.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+<section class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = 'jminj';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">Coding Space</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+	<li class="nav-link"><a href="/studynote/">Study Note</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Typography</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:jminj0204@gmail.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">jminj0204@gmail.com</span>
+          </a>
+        </li>
+
+        
+          
+          <li>
+            <a href="https://github.com/jiminjeong22" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">jiminjeong22</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <h4 class="text">A simple development website or blog.
+</h4>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-158025726-1', 'auto');
+  ga('send', 'pageview', {
+    'page': '/python/2019/12/23/pypro-chap16.html',
+    'title': '[파이썬 프로그래밍] Chapter 16. 파일을 활용한 데이터 보관'
+  });
+</script>
+
+
+
+  </body>
+
+</html>

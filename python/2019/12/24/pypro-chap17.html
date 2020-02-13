@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>[파이썬 프로그래밍] Chpter 17. 데이터베이스 프로그래밍 맛보기</title>
+  <meta name="description" content="1. 데이터베이스 제어를 위한 언어 SQL (Structured Query Language)  SQL은 데이터베이스를 제어하기 위한 특정한 명령어들의 집합이다">
+  
+  <meta name="author" content="Jimin Jeong">
+  <meta name="copyright" content="&copy; Jimin Jeong 2020">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="1. 데이터베이스 제어를 위한 언어 SQL (Structured Query Language)  SQL은 데이터베이스를 제어하기 위한 특정한 명령어들의 집합이다" />
+  <meta property="og:url" content="http://localhost:4000/python/2019/12/24/pypro-chap17.html">
+  <meta property="og:site_name" content="Coding Space" />
+  <meta property="og:title" content="[파이썬 프로그래밍] Chpter 17. 데이터베이스 프로그래밍 맛보기" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/logo.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="[파이썬 프로그래밍] Chpter 17. 데이터베이스 프로그래밍 맛보기">
+  <meta name="twitter:description" content="1. 데이터베이스 제어를 위한 언어 SQL (Structured Query Language)  SQL은 데이터베이스를 제어하기 위한 특정한 명령어들의 집합이다">
+  <meta name="twitter:image" content="http://localhost:4000/assets/logo.png">
+  <meta name="twitter:url" content="http://localhost:4000/python/2019/12/24/pypro-chap17.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/python/2019/12/24/pypro-chap17.html">
+	<link rel="alternate" type="application/rss+xml" title="Coding Space" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/logo.png" alt="Coding Space">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+	<li class="nav-link"><a href="/studynote/">Study Note</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Typography</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container " >
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">[파이썬 프로그래밍] Chpter 17. 데이터베이스 프로그래밍 맛보기</h1>
+      <p class="info">by <strong>Jimin Jeong</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">December 24, 2019</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/Python">Python</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h2 id="1-데이터베이스-제어를-위한-언어-sql-structured-query-language">1. 데이터베이스 제어를 위한 언어 SQL (Structured Query Language)</h2>
+<ul>
+  <li>SQL은 데이터베이스를 제어하기 위한 특정한 명령어들의 집합이다</li>
+</ul>
+
+<dl>
+  <dt><code class="highlighter-rouge">CREATE TABLE my_books (title text, publisher text, pages integer)</code></dt>
+  <dd>‘my_books’라는 이름의 테이블을 만들고, column은 text형식의 title과 publisher, integer 형식의 pages를 집어넣는다</dd>
+  <dt><code class="highlighter-rouge">INSERT INTO my_books VALUES ('개발자의 코드', 'A', 200)</code></dt>
+  <dd>‘my_books’ 테이블에 다음의 값을 하나의 행(row)에 집어 넣는다</dd>
+  <dt><code class="highlighter-rouge">SELECT title, publisher FROM my_books WHERE pages &gt; 300</code></dt>
+  <dd>‘my_books’ 테이블에서 페이지 수가 300이 넘는 책의 제목(title)과 출판사(publisher)를 조회한다</dd>
+</dl>
+
+<h2 id="2-테이블-생성하기-create-table">2. 테이블 생성하기 Create Table</h2>
+<ol>
+  <li>SQL (Structured Query Language): 데이터베이스에 명령을 내리기 위한 언어. 파이썬과는 무관하며 어떤 데이터베이스든 데이터를 저장하기 위한 공간을 만들거나 데이터의 CRUD (Create, Read, Update, Delete)를 하기 위한 방법 등을 제공한다</li>
+  <li>커넥션 (Connection) : 데이터베이스와 연결하는 주체</li>
+  <li>커서 (Cursor) : SQL을 수행하는 주체</li>
+  <li>테이블 (Table) : 행과 열로 이루어진 정렬된 데이터의 집합, 데이터를 저장하기 위해서는 테이블이 반드시 존재해야 한다</li>
+  <li>열 (Column) : 테이블의 열을 정의하기 위해 컬럼명이 필요하다</li>
+  <li>행 (Row) : 한 행은 한 개의 데이터를 의미한다</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#데이터베이스 커넥션 객체 생성 (데이터베이스 파일명: my_books.db)
+conn = sqlite3.connect('my_books.db') 
+cur = conn.cursor() #커서 생성
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#my_books 테이블 생성
+cur.execute(CREATE TABLE my_books (
+							title text,
+							published_date text,
+							publisher text,
+							pages integer,
+							recommendation integer)
+)
+</code></pre></div></div>
+<ul>
+  <li>SQLite3는 논리 타입을 제공하고 있지 않고, integer로 명시하여 거짓인 경우를 0, 참인 경우를 1로 저장한다</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#데이터베이스 반영
+conn.commit()
+conn.close()
+</code></pre></div></div>
+
+<h2 id="3-데이터-입력하기-insert">3. 데이터 입력하기 INSERT</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>insert_sql = 'INSERT INTO my_books VALUES (?, ?, ?, ?, ?)'
+	
+cur.executemany(insert_sql, books)
+</code></pre></div></div>
+
+<h2 id="4-데이터-조회하기-select">4. 데이터 조회하기 SELECT</h2>
+<h3 id="41-전체-조회하기-fetchall">4.1. 전체 조회하기 (fetchall)</h3>
+<ul>
+  <li><code class="highlighter-rouge">SELECT (조회할 column) FROM (테이블 이름)</code> 의 형식</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#조회용 SQL 실행
+cur.execute('SELECT * FROM my_books')
+</code></pre></div></div>
+<ul>
+  <li>my_books 테이블의 모든 정보를 조회하겠다 (*는 모든을 의미함)</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#조회한 데이터 불러오기
+books = cur.fetchall()
+</code></pre></div></div>
+
+<h3 id="42-일부-조회하기-fetchmany">4.2. 일부 조회하기 (fetchmany)</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cur.execute('SELECT * FROM my_books')
+books = cur.fetchmany(number)
+for book in books:
+	print(book)
+</code></pre></div></div>
+
+<h3 id="43-한-개-조회하기-fetchone">4.3 한 개 조회하기 (fetchone)</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cur.execute('SELECT * FROM my_books')
+print(cur.fetchone())
+</code></pre></div></div>
+
+<h3 id="44-특정-조건에-맞는-조회용-함수">4.4 특정 조건에 맞는 조회용 함수</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cur.execute('SELECT title, pages FROM my_books WHERE pages&gt;300')
+
+books = cur.fetchall()
+
+for book in books:
+	print(book)
+</code></pre></div></div>
+
+<h2 id="5-데이터-수정하기-update">5. 데이터 수정하기 UPDATE</h2>
+<ul>
+  <li><code class="highlighter-rouge">UPDATE (테이블 이름) SET (수정 상세 내용) (수정 대상)</code></li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#데이터 수정 SQL (제목이 ?인 책의 추천 유무를 ?로 변경)
+update_sql = 'UPDATE my_books SET recommendation=? WHERE title=?'
+	
+#수정 SQL 실행
+cur.execute(update_sql, (1, '개발자의 코드'))
+	
+conn.commit()
+conn.close()
+</code></pre></div></div>
+<ul>
+  <li>SELECT와 달리 데이터베이스를 수정해야 할 상황이므로 commit을 해준다</li>
+</ul>
+
+<h2 id="6-데이터-삭제하기-delete">6. 데이터 삭제하기 DELETE</h2>
+<ul>
+  <li><code class="highlighter-rouge">DELETE FROM (테이블 이름) (조건 명시) (상세 조건)</code></li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#데이터 삭제 SQL
+delete_sql = 'DELETE FROM my_books WHERE publisher=?'
+	
+cur.execute(delete_sql,'A')
+	
+conn.commit()
+</code></pre></div></div>
+
+<h2 id="7-with문으로-컨텍스트-관리하기">7. with문으로 컨텍스트 관리하기</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>try:
+	conn = sqlite3.connect('./db/my_books.db')
+	cur = conn.cursor()
+	
+ 	#데이터 수정 SQL (제목이 ?인 책의 추천 유무를 ?로 변경)
+	update_sql = 'UPDATE my_books SET recommendation=? WHERE title=?'
+	
+	#수정	 SQL 실행
+	cur.execute(update_sql, (0, '클린 코드'))
+	
+	conn.commit()
+		
+#예외 처리
+except:
+	print('예외 상황 발생')
+	conn.rollback()
+finally:
+	if conn: 
+		conn.close()
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- `rollback()`  은 commit()과 반대되는 개념으로 업데이트 구문이 실행되었지만, 실행되기 전으로 원복하겠다는 의미이다
+- commit()이 있는 소스 코드에는 반드시 예외 상황 시에 rollback()하는 소스 코드가 포함되어야 한다.
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def update_books():
+	with sqlite3.connect('./db/my_books.db') as conn:
+		cur = conn.cursor()
+	
+ 		#데이터 수정 SQL (제목이 ?인 책의 추천 유무를 ?로 변경)
+		update_sql = 'UPDATE my_books SET recommendation=? WHERE title=?'
+	
+		#수정	 SQL 실행
+		cur.execute(update_sql, (0, '클린 코드'))
+</code></pre></div></div>
+
+<h2 id="8-데이터베이스-네비게이터-활용하기">8. 데이터베이스 네비게이터 활용하기</h2>
+
+</article>
+
+
+
+<section class="tags">
+  <strong>Tags:</strong> <a href="/tag/파이썬">파이썬</a>,&nbsp;<a href="/tag/프로그래밍">프로그래밍</a>
+</section>
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%5D+Chpter+17.+%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D+%EB%A7%9B%EB%B3%B4%EA%B8%B0&u=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2019%2F12%2F24%2Fpypro-chap17.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%5D+Chpter+17.+%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D+%EB%A7%9B%EB%B3%B4%EA%B8%B0&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2019%2F12%2F24%2Fpypro-chap17.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+<section class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = 'jminj';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">Coding Space</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+	<li class="nav-link"><a href="/studynote/">Study Note</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Typography</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:jminj0204@gmail.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">jminj0204@gmail.com</span>
+          </a>
+        </li>
+
+        
+          
+          <li>
+            <a href="https://github.com/jiminjeong22" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">jiminjeong22</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <h4 class="text">A simple development website or blog.
+</h4>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-158025726-1', 'auto');
+  ga('send', 'pageview', {
+    'page': '/python/2019/12/24/pypro-chap17.html',
+    'title': '[파이썬 프로그래밍] Chpter 17. 데이터베이스 프로그래밍 맛보기'
+  });
+</script>
+
+
+
+  </body>
+
+</html>

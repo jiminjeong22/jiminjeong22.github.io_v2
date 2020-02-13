@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>[파이썬 프로그래밍] Chapter 8. 내가 만드는 함수</title>
+  <meta name="description" content="1. 가변 인자 리스트 활용하기 Arbitary Argument Lists  인자 값 여러 개를 하나의 변수에 담아서 전달하고자 한다면 별표 기호  *  를 활용하면 된다                  (별표 한개): 튜플 타입의 데이터를 대입** (별표 두개): 사전 타입의 데이...">
+  
+  <meta name="author" content="Jimin Jeong">
+  <meta name="copyright" content="&copy; Jimin Jeong 2020">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="1. 가변 인자 리스트 활용하기 Arbitary Argument Lists  인자 값 여러 개를 하나의 변수에 담아서 전달하고자 한다면 별표 기호  *  를 활용하면 된다                  (별표 한개): 튜플 타입의 데이터를 대입** (별표 두개): 사전 타입의 데이..." />
+  <meta property="og:url" content="http://localhost:4000/python/2019/12/18/pypro-chap8.html">
+  <meta property="og:site_name" content="Coding Space" />
+  <meta property="og:title" content="[파이썬 프로그래밍] Chapter 8. 내가 만드는 함수" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://localhost:4000/assets/logo.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="[파이썬 프로그래밍] Chapter 8. 내가 만드는 함수">
+  <meta name="twitter:description" content="1. 가변 인자 리스트 활용하기 Arbitary Argument Lists  인자 값 여러 개를 하나의 변수에 담아서 전달하고자 한다면 별표 기호  *  를 활용하면 된다                  (별표 한개): 튜플 타입의 데이터를 대입** (별표 두개): 사전 타입의 데이...">
+  <meta name="twitter:image" content="http://localhost:4000/assets/logo.png">
+  <meta name="twitter:url" content="http://localhost:4000/python/2019/12/18/pypro-chap8.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/python/2019/12/18/pypro-chap8.html">
+	<link rel="alternate" type="application/rss+xml" title="Coding Space" href="http://localhost:4000/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/logo.png" alt="Coding Space">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+	<li class="nav-link"><a href="/studynote/">Study Note</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Typography</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container " >
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">[파이썬 프로그래밍] Chapter 8. 내가 만드는 함수</h1>
+      <p class="info">by <strong>Jimin Jeong</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">December 18, 2019</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/Python">Python</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h2 id="1-가변-인자-리스트-활용하기-arbitary-argument-lists">1. 가변 인자 리스트 활용하기 Arbitary Argument Lists</h2>
+<ul>
+  <li>인자 값 여러 개를 하나의 변수에 담아서 전달하고자 한다면 별표 기호  <code class="highlighter-rouge">*</code>  를 활용하면 된다
+    <blockquote>
+      <ul>
+        <li>(별표 한개): 튜플 타입의 데이터를 대입<br />
+** (별표 두개): 사전 타입의 데이터를 대입</li>
+      </ul>
+    </blockquote>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def introduce_your_family (name, *family_names, **family_info):
+	print('제 이름은' , name, '입니다')
+	print('제 가족들의 이름은 아래와 같아요')
+	for family_name in family_names:
+		print(family_name)
+	print("="*40)
+	for key in family_info.keys():
+		print(key, ":", family_info[key])
+		
+introduce_your_family('지민', '정희근','박주현','정지원', 지역="수원", 가훈="니 인생은 니 인생이다" )	
+</code></pre></div></div>
+
+<h2 id="2-언패킹-인자-리스트-활용하기">2. 언패킹 인자 리스트 활용하기</h2>
+<ul>
+  <li>함수를 호출할 때 인자 값 앞에 사용하는 별표 기호는 이 열거형 데이터를 언패킹하라는 의미로 해석이 된다
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; list(range(3,6))
+[3, 4, 5]
+&gt;&gt;&gt; args = [3,6]
+&gt;&gt;&gt; list(range(*args))
+[3, 4, 5]
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; def introduce_my_car (manufacturer, seats=4, kind='sedan'):
+       print('내 차는' , manufacturer, '의', seats, '인승', kind, '이다')
+&gt;&gt;&gt; input = {'manufacturer':'현대', 'seats': 9, 'kind': '승합차'}
+&gt;&gt;&gt; introduce_my_car(**input)
+내 차는 현대 의 9 인승 승합차 이다
+</code></pre></div></div>
+
+<h2 id="3-변수의-유효-범위-scope">3. 변수의 유효 범위 Scope</h2>
+<ul>
+  <li>유효범위: 해당 변수가 영향을 미치는 영역</li>
+  <li>global: 함수 내에서 사용할 변수가 전역 변수임을 선언
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; def my_func():
+...   global param
+...   param = 'Modified by my_func'
+...   print(param)
+...   print(id(param))
+...   
+&gt;&gt;&gt; param = 'Create from outside'
+&gt;&gt;&gt; my_func()
+Modified by my_func
+4654199264
+&gt;&gt;&gt; print(param)
+Modified by my_func
+&gt;&gt;&gt; id(param)
+4654199264
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+</article>
+
+
+
+<section class="tags">
+  <strong>Tags:</strong> <a href="/tag/파이썬">파이썬</a>,&nbsp;<a href="/tag/프로그래밍">프로그래밍</a>
+</section>
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%5D+Chapter+8.+%EB%82%B4%EA%B0%80+%EB%A7%8C%EB%93%9C%EB%8A%94+%ED%95%A8%EC%88%98&u=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2019%2F12%2F18%2Fpypro-chap8.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=%5B%ED%8C%8C%EC%9D%B4%EC%8D%AC+%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%5D+Chapter+8.+%EB%82%B4%EA%B0%80+%EB%A7%8C%EB%93%9C%EB%8A%94+%ED%95%A8%EC%88%98&url=http%3A%2F%2Flocalhost%3A4000%2Fpython%2F2019%2F12%2F18%2Fpypro-chap8.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+<section class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = 'jminj';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading">Coding Space</h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+	<li class="nav-link"><a href="/studynote/">Study Note</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Typography</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:jminj0204@gmail.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">jminj0204@gmail.com</span>
+          </a>
+        </li>
+
+        
+          
+          <li>
+            <a href="https://github.com/jiminjeong22" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">jiminjeong22</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <h4 class="text">A simple development website or blog.
+</h4>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-158025726-1', 'auto');
+  ga('send', 'pageview', {
+    'page': '/python/2019/12/18/pypro-chap8.html',
+    'title': '[파이썬 프로그래밍] Chapter 8. 내가 만드는 함수'
+  });
+</script>
+
+
+
+  </body>
+
+</html>
