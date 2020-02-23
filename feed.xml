@@ -6,9 +6,23 @@
 </description>
     <link>https://jiminjeong22.github.io/</link>
     <atom:link href="https://jiminjeong22.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 22 Feb 2020 00:05:23 +0900</pubDate>
-    <lastBuildDate>Sat, 22 Feb 2020 00:05:23 +0900</lastBuildDate>
+    <pubDate>Sun, 23 Feb 2020 22:19:51 +0900</pubDate>
+    <lastBuildDate>Sun, 23 Feb 2020 22:19:51 +0900</lastBuildDate>
     <generator>Jekyll v3.8.6</generator>
+    
+      <item>
+        <title>Chapter 5. 선택문 (if, switch ~ case)</title>
+        <description>&lt;h2 id=&quot;5-1-if문&quot;&gt;5-1. if문&lt;/h2&gt; &lt;h3 id=&quot;if문의-기본-형식&quot;&gt;if문의 기본 형식&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;if문은 중괄호 &lt;code class=&quot;highlighter-rouge&quot;&gt;{}&lt;/code&gt; 를 사용하고 들여쓰기하여 실행문을 구분하는 것이 좋다.&lt;/li&gt; &lt;li&gt;실행할 문장이 한줄인 경우 중괄호는 삭제할 수 있다, 하지만, 실행할 문장이...</description>
+        <pubDate>Sun, 23 Feb 2020 00:00:00 +0900</pubDate>
+        <link>https://jiminjeong22.github.io/c/2020/02/23/chapter5.html</link>
+        <guid isPermaLink="true">https://jiminjeong22.github.io/c/2020/02/23/chapter5.html</guid>
+        
+        <category>혼공단</category>
+        
+        
+        <category>C</category>
+        
+      </item>
     
       <item>
         <title>[Jekyll] Jekyll로 Github Blog 만들기</title>
@@ -128,22 +142,6 @@
         <pubDate>Mon, 23 Dec 2019 17:43:59 +0900</pubDate>
         <link>https://jiminjeong22.github.io/python/2019/12/23/pypro-chap16.html</link>
         <guid isPermaLink="true">https://jiminjeong22.github.io/python/2019/12/23/pypro-chap16.html</guid>
-        
-        <category>파이썬</category>
-        
-        <category>프로그래밍</category>
-        
-        
-        <category>Python</category>
-        
-      </item>
-    
-      <item>
-        <title>[파이썬 프로그래밍] Chapter  13. 에러 Errors 와 예외 처리 Exceptions Handling </title>
-        <description>&lt;h2 id=&quot;1-구문-에러-syntax-errors&quot;&gt;1. 구문 에러 Syntax Errors&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;구문 에러 Syntax Error: 문법 오류로 인해 소스 코드를 실행 하기 전에 발생하는 에러&lt;/li&gt; &lt;li&gt;파싱 에러 Parsing Error: 실행이 되기 전에 소스 코드의...</description>
-        <pubDate>Mon, 23 Dec 2019 16:43:59 +0900</pubDate>
-        <link>https://jiminjeong22.github.io/python/2019/12/23/pypro-chap13.html</link>
-        <guid isPermaLink="true">https://jiminjeong22.github.io/python/2019/12/23/pypro-chap13.html</guid>
         
         <category>파이썬</category>
         
