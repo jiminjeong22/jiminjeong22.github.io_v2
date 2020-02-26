@@ -6,9 +6,23 @@
 </description>
     <link>https://jiminjeong22.github.io/</link>
     <atom:link href="https://jiminjeong22.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 26 Feb 2020 11:59:42 +0900</pubDate>
-    <lastBuildDate>Wed, 26 Feb 2020 11:59:42 +0900</lastBuildDate>
+    <pubDate>Wed, 26 Feb 2020 12:38:01 +0900</pubDate>
+    <lastBuildDate>Wed, 26 Feb 2020 12:38:01 +0900</lastBuildDate>
     <generator>Jekyll v3.8.6</generator>
+    
+      <item>
+        <title>Chapter 6. 반복문</title>
+        <description>&lt;h2 id=&quot;6-1-while문-for문-do-while문&quot;&gt;6-1. while문, for문, do-while문&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;반복문: 일정 조건을 만족하는 동안 같은 실행문을 반복하는 것 &lt;ol&gt; &lt;li&gt;while문: 조건을 먼저 들어보고, 만족한느 동안 실행문을 실행&lt;/li&gt; &lt;li&gt;for문: 초깃값을 최초 설정한 다음, 조건을...</description>
+        <pubDate>Tue, 25 Feb 2020 00:00:00 +0900</pubDate>
+        <link>https://jiminjeong22.github.io/c/2020/02/25/chapter6.html</link>
+        <guid isPermaLink="true">https://jiminjeong22.github.io/c/2020/02/25/chapter6.html</guid>
+        
+        <category>혼공단</category>
+        
+        
+        <category>C</category>
+        
+      </item>
     
       <item>
         <title>Chapter 5. 선택문 (if, switch ~ case)</title>
@@ -25,8 +39,8 @@
       </item>
     
       <item>
-        <title>[Jekyll] Jekyll로 Github Blog 만들기</title>
-        <description>&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cannot load such file -- 2.6/rubyeventmachine (LoadError)&lt;/code&gt;&lt;/p&gt; &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem uninstall eventmachine gem install eventmachine --platform ruby &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt; &lt;p&gt;``jekyll serve –livereload&lt;code class=&quot;highlighter-rouge&quot;&gt; or &lt;/code&gt;bundle exec jekyll serve –livereload`...</description>
+        <title>[Jekyll] Jekyll로 Github Blog 만들기(테마, 폰트 적용)</title>
+        <description>&lt;h2 id=&quot;1-블로그-jekyll-테마-적용&quot;&gt;1. 블로그 jekyll 테마 적용&lt;/h2&gt; &lt;p&gt;필자는 현 블로그에 jekyll centarium[http://jekyllthemes.org/themes/centrarium/] 테마를 적용했다. 혹은 다른 테마를 원한다면 [http://jekyllthemes.org/] 다음 링크로 들어가 확인한다.&lt;/p&gt; &lt;h2 id=&quot;2-jekyll-블로그-수정사항-실시간으로-반영&quot;&gt;2. jekyll 블로그 수정사항 실시간으로 반영&lt;/h2&gt; &lt;p&gt;``jekyll...</description>
         <pubDate>Wed, 19 Feb 2020 00:00:00 +0900</pubDate>
         <link>https://jiminjeong22.github.io/jekyll/2020/02/19/jekyll-github-blog.html</link>
         <guid isPermaLink="true">https://jiminjeong22.github.io/jekyll/2020/02/19/jekyll-github-blog.html</guid>
@@ -126,22 +140,6 @@
         <pubDate>Tue, 24 Dec 2019 17:43:59 +0900</pubDate>
         <link>https://jiminjeong22.github.io/python/2019/12/24/pypro-chap17.html</link>
         <guid isPermaLink="true">https://jiminjeong22.github.io/python/2019/12/24/pypro-chap17.html</guid>
-        
-        <category>파이썬</category>
-        
-        <category>프로그래밍</category>
-        
-        
-        <category>Python</category>
-        
-      </item>
-    
-      <item>
-        <title>[파이썬 프로그래밍] Chapter 16. 파일을 활용한 데이터 보관</title>
-        <description>&lt;h2 id=&quot;1-파일에-데이터-저장하기&quot;&gt;1. 파일에 데이터 저장하기&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;절대 경로를 사용한 파일 열기 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;&amp;gt;&amp;gt; f = open('D:/Python37/data/result.txt','w')&lt;/code&gt;&lt;/li&gt; &lt;li&gt;상대 경로를 사용한 파일 열기 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;&amp;gt;&amp;gt; f = open('./data/result.txt', 'w')&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;&amp;gt;&amp;gt; f.write('Hello,...</description>
-        <pubDate>Mon, 23 Dec 2019 17:43:59 +0900</pubDate>
-        <link>https://jiminjeong22.github.io/python/2019/12/23/pypro-chap16.html</link>
-        <guid isPermaLink="true">https://jiminjeong22.github.io/python/2019/12/23/pypro-chap16.html</guid>
         
         <category>파이썬</category>
         
