@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>[Jekyll] Jekyll로 Github Blog 만들기(테마, 폰트 적용)</title>
-  <meta name="description" content="1. 블로그 jekyll 테마 적용필자는 현 블로그에 jekyll centarium[http://jekyllthemes.org/themes/centrarium/] 테마를 적용했다. 혹은 다른 테마를 원한다면 [http://jekyllthemes.org/] 다음 링크로 들어가 확인한다.">
+  <meta name="description" content="1. 블로그 jekyll 테마 적용필자는 현 블로그에 jekyll centarium 테마를 적용했다. 혹은 다른 테마를 원한다면 다음 링크로 들어가 확인한다.">
   
   <meta name="author" content="Jimin Jeong">
   <meta name="copyright" content="&copy; Jimin Jeong 2020">
@@ -41,12 +41,12 @@
 
   
   <!-- Facebook OGP cards -->
-  <meta property="og:description" content="1. 블로그 jekyll 테마 적용필자는 현 블로그에 jekyll centarium[http://jekyllthemes.org/themes/centrarium/] 테마를 적용했다. 혹은 다른 테마를 원한다면 [http://jekyllthemes.org/] 다음 링크로 들어가 확인한다." />
+  <meta property="og:description" content="1. 블로그 jekyll 테마 적용필자는 현 블로그에 jekyll centarium 테마를 적용했다. 혹은 다른 테마를 원한다면 다음 링크로 들어가 확인한다." />
   <meta property="og:url" content="https://jiminjeong22.github.io/jekyll/2020/02/19/jekyll-github-blog.html">
   <meta property="og:site_name" content="" />
   <meta property="og:title" content="[Jekyll] Jekyll로 Github Blog 만들기(테마, 폰트 적용)" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://jiminjeong22.github.io/assets/my/original.gif" />
+  <meta property="og:image" content="https://jiminjeong22.github.io/assets/my/header_image55.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="612" />
   <meta property="og:image:height" content="605" />
@@ -56,8 +56,8 @@
   <!-- Twitter: card tags -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="[Jekyll] Jekyll로 Github Blog 만들기(테마, 폰트 적용)">
-  <meta name="twitter:description" content="1. 블로그 jekyll 테마 적용필자는 현 블로그에 jekyll centarium[http://jekyllthemes.org/themes/centrarium/] 테마를 적용했다. 혹은 다른 테마를 원한다면 [http://jekyllthemes.org/] 다음 링크로 들어가 확인한다.">
-  <meta name="twitter:image" content="https://jiminjeong22.github.io/assets/my/original.gif">
+  <meta name="twitter:description" content="1. 블로그 jekyll 테마 적용필자는 현 블로그에 jekyll centarium 테마를 적용했다. 혹은 다른 테마를 원한다면 다음 링크로 들어가 확인한다.">
+  <meta name="twitter:image" content="https://jiminjeong22.github.io/assets/my/header_image55.png">
   <meta name="twitter:url" content="https://jiminjeong22.github.io/jekyll/2020/02/19/jekyll-github-blog.html">
   
 
@@ -160,10 +160,10 @@
 
 <article class="post-content">
   <h2 id="1-블로그-jekyll-테마-적용">1. 블로그 jekyll 테마 적용</h2>
-<p>필자는 현 블로그에 jekyll centarium[http://jekyllthemes.org/themes/centrarium/] 테마를 적용했다. 혹은 다른 테마를 원한다면 [http://jekyllthemes.org/] 다음 링크로 들어가 확인한다.</p>
+<p>필자는 현 블로그에 <a href="http://jekyllthemes.org/themes/centrarium/">jekyll centarium</a> 테마를 적용했다. 혹은 다른 테마를 원한다면 <a href="http://jekyllthemes.org/">다음 링크</a>로 들어가 확인한다.</p>
 
 <h2 id="2-jekyll-블로그-수정사항-실시간으로-반영">2. jekyll 블로그 수정사항 실시간으로 반영</h2>
-<p>``jekyll serve –livereload<code class="highlighter-rouge"> or </code>bundle exec jekyll serve –livereload` 은 http://127.0.0.1:4000/ 에 수정된 사항을 자동적으로 적용해서 실시간으로 홈페이지에 반영해주는 명령문이다. (단, _config.yml은 수정해도 적용되지 않음, 다시 커맨드를 입력해야함)</p>
+<p><code class="highlighter-rouge">jekyll serve --livereload</code> or <code class="highlighter-rouge">bundle exec jekyll serve --livereload</code> 은 http://127.0.0.1:4000/ 에 수정된 사항을 자동적으로 적용해서 실시간으로 홈페이지에 반영해주는 명령문이다. (단, _config.yml은 수정해도 적용되지 않음, 다시 커맨드를 입력해야함)</p>
 
 <p>이때, <code class="highlighter-rouge">cannot load such file -- 2.6/rubyeventmachine (LoadError</code> 의 오류가 발생하기도 하는데, 다음의 명령문으로 해결할 수 있다.</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem uninstall eventmachine
@@ -172,7 +172,7 @@ gem install eventmachine --platform ruby
 
 <h2 id="3-jekyll-블로그-폰트-수정-에스코어-드림">3. jekyll 블로그 폰트 수정 (에스코어 드림)</h2>
 
-<p>폰트의 경우, 에스코어 드림[https://martian36.com/1609] 을 적용했다. <code class="highlighter-rouge">main.scss</code> 내부에 <code class="highlighter-rouge">@import url("S-Core-Dream-light/s-core-dream.css");</code>와 font family 변수를 설정하는 코드에 <code class="highlighter-rouge">font-family: "s-core-dream-light"</code>와 같이 수정을 하면 된다. 자세한 사항은 여기[https://martian36.com/1609]를 참고한다.</p>
+<p>폰트의 경우, <a href="https://martian36.com/1609">에스코어 드림</a> 을 적용했다. <code class="highlighter-rouge">main.scss</code> 내부에 <code class="highlighter-rouge">@import url("S-Core-Dream-light/s-core-dream.css");</code>와 font family 변수를 설정하는 코드에 <code class="highlighter-rouge">font-family: "s-core-dream-light"</code>와 같이 수정을 하면 된다. 자세한 사항은 <a href="https://martian36.com/1609">여기</a>를 참고한다.</p>
 
 <p>에스코어 드림 폰트 적용 시 다음과 같은 에러가 뜰 수 있다. 
 <code class="highlighter-rouge">ERROR /css/S-Core-Dream-full/scdream3-webfont.woff2' not found.</code>
