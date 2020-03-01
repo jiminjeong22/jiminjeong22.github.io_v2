@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>[혼공단 3기] Chapter 7. 함수</title>
+  <meta name="description" content="7-1. 함수의 작성과 사용  표준 라이브러리 함수: 프로그램에서 바로 사용할 수 있게 이미 구현되어 있는 함수          함수 정의: 함수를 실제 코드로 만드는 것이며 기능을 구현한다      함수 호출: 함수 호출 후에 함수를 사용 가능      함수 선언: 프로그램의 상...">
+  
+  <meta name="author" content="Jimin Jeong">
+  <meta name="copyright" content="&copy; Jimin Jeong 2020">
+  
+
+  <!-- External libraries -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/monokai-sublime.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css">
+
+  <!-- Favicon and other icons (made with http://www.favicon-generator.org/) -->
+  <link rel="shortcut icon" href="/assets/my/blog.png" type="image/x-icon">
+  <link rel="icon" href="/assets/my/blog.png" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/my/blog.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/my/blog.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/my/blog.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/my/blog.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/my/blog.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/my/blog.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/my/blog.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/my/blog.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/my/blog.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/my/blog.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/my/blog.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/my/blog.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/my/blog.png">
+  <link rel="manifest" href="/assets/icons/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/my/blog.png">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <!-- Facebook OGP cards -->
+  <meta property="og:description" content="7-1. 함수의 작성과 사용  표준 라이브러리 함수: 프로그램에서 바로 사용할 수 있게 이미 구현되어 있는 함수          함수 정의: 함수를 실제 코드로 만드는 것이며 기능을 구현한다      함수 호출: 함수 호출 후에 함수를 사용 가능      함수 선언: 프로그램의 상..." />
+  <meta property="og:url" content="https://jiminjeong22.github.io/c/2020/02/28/chapter7.html">
+  <meta property="og:site_name" content="" />
+  <meta property="og:title" content="[혼공단 3기] Chapter 7. 함수" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://jiminjeong22.github.io/assets/my/header_image66.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="612" />
+  <meta property="og:image:height" content="605" />
+  
+
+  
+  <!-- Twitter: card tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="[혼공단 3기] Chapter 7. 함수">
+  <meta name="twitter:description" content="7-1. 함수의 작성과 사용  표준 라이브러리 함수: 프로그램에서 바로 사용할 수 있게 이미 구현되어 있는 함수          함수 정의: 함수를 실제 코드로 만드는 것이며 기능을 구현한다      함수 호출: 함수 호출 후에 함수를 사용 가능      함수 선언: 프로그램의 상...">
+  <meta name="twitter:image" content="https://jiminjeong22.github.io/assets/my/header_image66.png">
+  <meta name="twitter:url" content="https://jiminjeong22.github.io/c/2020/02/28/chapter7.html">
+  
+
+  
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="https://jiminjeong22.github.io/c/2020/02/28/chapter7.html">
+	<link rel="alternate" type="application/rss+xml" title="" href="https://jiminjeong22.github.io/feed.xml" />
+	
+	<!-- Tooltips -->
+	<script type="text/javascript">
+		window.tooltips = []
+	</script>
+</head>
+
+
+  <body>
+
+    <header class="navigation" role="banner">
+  <div class="navigation-wrapper">
+    <a href="/" class="logo">
+      
+      <img src="/assets/my/blog.png" alt="">
+      
+    </a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav role="navigation">
+      <ul id="js-navigation-menu" class="navigation-menu show">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+	<li class="nav-link"><a href="/studynote/">Study Note</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Typography</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <div class="page-content">
+        <div class="post">
+
+<div class="post-header-container " >
+  <div class="scrim ">
+    <header class="post-header">
+      <h1 class="title">[혼공단 3기] Chapter 7. 함수</h1>
+      <p class="info">by <strong>Jimin Jeong</strong></p>
+    </header>
+  </div>
+</div>
+
+<div class="wrapper">
+
+ <span class="page-divider">
+  <span class="one"></span>
+  <span class="two"></span>
+</span>
+ 
+
+<section class="post-meta">
+  <div class="post-date">February 28, 2020</div>
+  <div class="post-categories">
+  in 
+    
+    <a href="/category/C">C</a>
+    
+  
+  </div>
+</section>
+
+<article class="post-content">
+  <h2 id="7-1-함수의-작성과-사용">7-1. 함수의 작성과 사용</h2>
+<ul>
+  <li>표준 라이브러리 함수: 프로그램에서 바로 사용할 수 있게 이미 구현되어 있는 함수
+    <ol>
+      <li>함수 정의: 함수를 실제 코드로 만드는 것이며 기능을 구현한다</li>
+      <li>함수 호출: 함수 호출 후에 함수를 사용 가능</li>
+      <li>함수 선언: 프로그램의 상단에서 어떤 함수를 사용할 것이라고 컴파일러에 정보를 주는 역할</li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="함수-정의">함수 정의</h3>
+<ul>
+  <li>함수 원형 function prototype
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>반환형 함수명(매개변수1, 매개변수2)
+{
+  //함수가 수행하는 명령. 결과값을 돌려보낸다
+}
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;stdio.h&gt;
+
+int sum(int x, int y);      // sum 함수 선언
+ 
+int main(void) 
+{
+    int a = 10, b= 20;
+    int result;
+    
+    result = sum(a,b);       // sum 함수 호출
+    printf("result : %d", result);
+    
+    return 0;
+}
+
+int sum(int x, int y)       // sum 함수 정의
+{
+    int temp;
+    temp = x + y;
+    return temp;
+}
+</code></pre></div></div>
+
+<ul>
+  <li>함수명은 기능을 예상할 수 있도록 적절한 이름을 선택한다</li>
+  <li>매개변수는 자료형이 같아도 콤마로 구분해서 따로 선언한다</li>
+  <li>반환형은 함수가 기능을 수행한 후에 호출한 곳으로 돌려줄 값의 자료형을 적는다</li>
+</ul>
+
+<h3 id="함수-호출과-반환">함수 호출과 반환</h3>
+<ul>
+  <li>인수 argument : 함수의 괄호에 넣은 데이터</li>
+</ul>
+
+<h3 id="함수-선언">함수 선언</h3>
+<ul>
+  <li>컴파일러가 새로 만든 함수를 인식할 수 있도록 알리는 역할
+<code class="highlighter-rouge">반환형 함수명(매개변수1, 매개변수2);</code></li>
+  <li>
+    <p>함수 선언은 main 함수 앞에 하며 매개변수 이름은 생략할 수 있다
+<code class="highlighter-rouge">int sum (int, int);</code></p>
+  </li>
+  <li>함수 선언이 필요한 이유
+    <ol>
+      <li>
+        <dl>
+          <dt>반환값의 형태를 미리 확인한다</dt>
+          <dd>저장 공간을 미리 확보하기 위해</dd>
+        </dl>
+      </li>
+    </ol>
+    <ul>
+      <li>main 함수 앞에 함수를 정의하면 함수 정의에 원형이 포함되므로 따로 함수를 선언할 필요가 없다. 하지만 가독성이 좋지 않다
+        <ol>
+          <li>함수의 호출 형식에 문제가 없는지를 검사</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="7-2-여러가지-함수-유형">7-2. 여러가지 함수 유형</h2>
+<h3 id="매개변수가-없는-함수">매개변수가 없는 함수</h3>
+<ul>
+  <li>함수의 매개변수 자리에 void를 사용한다
+    <ul>
+      <li>예시) <code class="highlighter-rouge">int get_num(void)</code></li>
+      <li>괄호만 사용하는 것도 가능하지만 void를 넣어 매개변수가 없음을 명시적으로 표현하는 것이 좋다</li>
+    </ul>
+  </li>
+  <li>void는 함수 정의나 선언에서 사용하며 호출할 때는 쓰지 않는다</li>
+  <li>괄호조차 없다면 함수를 호출하는 문장이 아닌 그냥 함수의 이름으로 인식하므로 반드시 괄호는 사용해야 한다</li>
+</ul>
+
+<h3 id="반환값이-없는-함수">반환값이 없는 함수</h3>
+<ul>
+  <li>반환형의 자리에 void를 사용한다
+    <ul>
+      <li>예시) <code class="highlighter-rouge">void print_char(char ch, int count)</code></li>
+    </ul>
+  </li>
+  <li>return문은 값 없이 단독으로 사용한다 (return;)</li>
+  <li>return문 자체를 생략하는 것도 가능하다</li>
+</ul>
+
+<h3 id="매개변수와-반환값이-모두-없는-함수">매개변수와 반환값이 모두 없는 함수</h3>
+<ul>
+  <li>매개변수와 반환형 모두에 void를 쓴다</li>
+</ul>
+
+<h3 id="재귀호출-함수-recursive-call-function">재귀호출 함수 recursive call function</h3>
+<ul>
+  <li>자기 자신을 호출하는 함수</li>
+  <li>재귀호출 함수는 반복 고리를 끊을 수 있는 조건식을 반드시 포함해야 한다
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void fruit(int count)
+{
+  printf("apple\n");
+  if (count ==3) return;
+  fruit(count+1);
+}
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="7-3-4주차-기본-미션">7-3. 4주차 기본 미션</h2>
+<ul>
+  <li>직접 표로 핵심 포인트 정리 공유
+    <ul>
+      <li>표로 정리하기엔 적고 싶은 포인트가 너무 많아서 위처럼 글로 적었다……(귀찮은건 절대 아니다)</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="7-4-4주차-선택-미션">7-4. 4주차 선택 미션</h2>
+<ul>
+  <li>재귀호출 함수 예제 종료되는 스크린샷
+<img src="/assets/img/hongong/7-2.png" alt="image" /></li>
+  <li>종료의 이유는 재귀호출 함수내 반복을 제어하는 명령문이 없어 무한정으로 반복하다 프로그램에 할당된 메모리를 모두 사용하여 강제 종료된 것이다.</li>
+</ul>
+
+<h2 id="오늘의-실수">오늘의 실수</h2>
+<ul>
+  <li>7-1 확인 문제에서 double형을 int형 2개로 나누어 출력하려고 하였다.
+    <ul>
+      <li>187/100 이 아니라 187/100.0으로 하자</li>
+      <li>파이썬의 자동화에 익숙해져 있어 C 언어 사용에 있어 실수를 많이 하는 것 같다</li>
+    </ul>
+  </li>
+</ul>
+
+
+</article>
+
+
+
+<section class="tags">
+  <strong>Tags:</strong> <a href="/tag/혼공단">혼공단</a>
+</section>
+
+
+
+<section class="rss">
+  <p class="rss-subscribe text"><strong>Subscribe <a href="/feed.xml">via RSS</a></strong></p>
+</section>
+
+<section class="share">
+  <span>Share: </span>
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+      <a href="//www.facebook.com/sharer.php?t=%5B%ED%98%BC%EA%B3%B5%EB%8B%A8+3%EA%B8%B0%5D+Chapter+7.+%ED%95%A8%EC%88%98&u=https%3A%2F%2Fjiminjeong22.github.io%2Fc%2F2020%2F02%2F28%2Fchapter7.html"
+        onclick="window.open(this.href, 'facebook-share', 'width=550,height=255');return false;">
+        <i class="fa fa-facebook-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      <a href="//plus.google.com/share?title=%5B%ED%98%BC%EA%B3%B5%EB%8B%A8+3%EA%B8%B0%5D+Chapter+7.+%ED%95%A8%EC%88%98&url=https%3A%2F%2Fjiminjeong22.github.io%2Fc%2F2020%2F02%2F28%2Fchapter7.html"
+        onclick="window.open(this.href, 'google-plus-share', 'width=550,height=255');return false;">
+        <i class="fa fa-google-plus-square fa-lg"></i>
+      </a>
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+</section>
+
+
+
+
+<section class="disqus">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = 'jminj';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+
+</div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h3 class="footer-heading"></h3>
+
+    <div class="site-navigation">
+
+      <p><strong>Site Map</strong></p>
+      <ul class="pages">
+				
+	
+	<li class="nav-link"><a href="/about/">About</a>
+	
+
+	
+
+	
+
+	
+	<li class="nav-link"><a href="/posts/">Posts</a>
+	
+
+	
+	<li class="nav-link"><a href="/studynote/">Study Note</a>
+	
+
+	
+	<li class="nav-link"><a href="/typography/">Typography</a>
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+      </ul>
+    </div>
+
+    <div class="site-contact">
+
+      <p><strong>Contact</strong></p>
+      <ul class="social-media-list">
+        <li>
+          <a href="mailto:jminj0204@gmail.com">
+            <i class="fa fa-envelope-o"></i>
+            <span class="username">jminj0204@gmail.com</span>
+          </a>
+        </li>
+
+        
+          
+          <li>
+            <a href="https://github.com/jiminjeong22" title="Fork me on GitHub">
+              <i class="fa fa-github"></i>
+              <span class="username">jiminjeong22</span>
+            </a>
+          </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </ul>
+    </div>
+
+    <div class="site-signature">
+      <h4 class="text"></h4>
+    </div>
+
+  </div>
+
+</footer>
+
+<!-- Scripts -->
+<script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+<script src="//unpkg.com/popper.js@1"></script>
+<script src="//unpkg.com/tippy.js@5"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  // Default syntax highlighting
+  hljs.initHighlightingOnLoad();
+
+  // Header
+  var menuToggle = $('#js-mobile-menu').unbind();
+  $('#js-navigation-menu').removeClass("show");
+  menuToggle.on('click', function(e) {
+    e.preventDefault();
+    $('#js-navigation-menu').slideToggle(function(){
+      if($('#js-navigation-menu').is(':hidden')) {
+        $('#js-navigation-menu').removeAttr('style');
+      }
+    });
+  });
+
+	// Enable tooltips via Tippy.js
+	if (Array.isArray(window.tooltips)) {
+		window.tooltips.forEach(function(tooltip) {
+			var selector = tooltip[0];
+			var config = tooltip[1];
+			tippy(selector, config);
+		})
+	}
+});
+
+</script>
+
+
+
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-158025726-1', 'auto');
+  ga('send', 'pageview', {
+    'page': '/c/2020/02/28/chapter7.html',
+    'title': '[혼공단 3기] Chapter 7. 함수'
+  });
+</script>
+
+
+
+  </body>
+
+</html>

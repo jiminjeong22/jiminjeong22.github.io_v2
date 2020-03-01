@@ -5,9 +5,23 @@
     <description></description>
     <link>https://jiminjeong22.github.io/</link>
     <atom:link href="https://jiminjeong22.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 26 Feb 2020 15:32:39 +0900</pubDate>
-    <lastBuildDate>Wed, 26 Feb 2020 15:32:39 +0900</lastBuildDate>
+    <pubDate>Sun, 01 Mar 2020 15:46:39 +0900</pubDate>
+    <lastBuildDate>Sun, 01 Mar 2020 15:46:39 +0900</lastBuildDate>
     <generator>Jekyll v3.8.6</generator>
+    
+      <item>
+        <title>[혼공단 3기] Chapter 7. 함수</title>
+        <description>&lt;h2 id=&quot;7-1-함수의-작성과-사용&quot;&gt;7-1. 함수의 작성과 사용&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;표준 라이브러리 함수: 프로그램에서 바로 사용할 수 있게 이미 구현되어 있는 함수 &lt;ol&gt; &lt;li&gt;함수 정의: 함수를 실제 코드로 만드는 것이며 기능을 구현한다&lt;/li&gt; &lt;li&gt;함수 호출:...</description>
+        <pubDate>Fri, 28 Feb 2020 00:00:00 +0900</pubDate>
+        <link>https://jiminjeong22.github.io/c/2020/02/28/chapter7.html</link>
+        <guid isPermaLink="true">https://jiminjeong22.github.io/c/2020/02/28/chapter7.html</guid>
+        
+        <category>혼공단</category>
+        
+        
+        <category>C</category>
+        
+      </item>
     
       <item>
         <title>[혼공단 3기] Chapter 6. 반복문</title>
@@ -123,22 +137,6 @@
         <pubDate>Wed, 25 Dec 2019 17:43:59 +0900</pubDate>
         <link>https://jiminjeong22.github.io/python/2019/12/25/pypro-chap18.html</link>
         <guid isPermaLink="true">https://jiminjeong22.github.io/python/2019/12/25/pypro-chap18.html</guid>
-        
-        <category>파이썬</category>
-        
-        <category>프로그래밍</category>
-        
-        
-        <category>Python</category>
-        
-      </item>
-    
-      <item>
-        <title>[파이썬 프로그래밍] Chpter 17. 데이터베이스 프로그래밍 맛보기</title>
-        <description>&lt;h2 id=&quot;1-데이터베이스-제어를-위한-언어-sql-structured-query-language&quot;&gt;1. 데이터베이스 제어를 위한 언어 SQL (Structured Query Language)&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;SQL은 데이터베이스를 제어하기 위한 특정한 명령어들의 집합이다&lt;/li&gt; &lt;/ul&gt; &lt;dl&gt; &lt;dt&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;CREATE TABLE my_books (title text, publisher text, pages integer)&lt;/code&gt;&lt;/dt&gt;...</description>
-        <pubDate>Tue, 24 Dec 2019 17:43:59 +0900</pubDate>
-        <link>https://jiminjeong22.github.io/python/2019/12/24/pypro-chap17.html</link>
-        <guid isPermaLink="true">https://jiminjeong22.github.io/python/2019/12/24/pypro-chap17.html</guid>
         
         <category>파이썬</category>
         
