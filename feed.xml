@@ -5,9 +5,23 @@
     <description></description>
     <link>https://jiminjeong22.github.io/</link>
     <atom:link href="https://jiminjeong22.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 01 Mar 2020 15:55:59 +0900</pubDate>
-    <lastBuildDate>Sun, 01 Mar 2020 15:55:59 +0900</lastBuildDate>
+    <pubDate>Sun, 08 Mar 2020 22:59:25 +0900</pubDate>
+    <lastBuildDate>Sun, 08 Mar 2020 22:59:25 +0900</lastBuildDate>
     <generator>Jekyll v3.8.6</generator>
+    
+      <item>
+        <title>[상담 이론] Adler의 개인 심리학</title>
+        <description>&lt;p&gt;2020-1학기 아동청소년 상담 1주차 과제 중 선호하는 상담이론을 골라 요약해보는 시간을 가졌다. Adler는 인간은 완전한 선과 악으로 구분 짓지 않았으며, 나약하지만 극복해 나가려는 존재로 보았기 때문에 마음에 들었다. 특히, 페이스북,...</description>
+        <pubDate>Sun, 08 Mar 2020 00:00:00 +0900</pubDate>
+        <link>https://jiminjeong22.github.io/psychology/2020/03/08/adler.html</link>
+        <guid isPermaLink="true">https://jiminjeong22.github.io/psychology/2020/03/08/adler.html</guid>
+        
+        <category>Adler</category>
+        
+        
+        <category>Psychology</category>
+        
+      </item>
     
       <item>
         <title>[혼공단 3기] Chapter 7. 함수</title>
@@ -128,22 +142,6 @@
         
         
         <category>C</category>
-        
-      </item>
-    
-      <item>
-        <title>[파이썬 프로그래밍] Chapter 18. 웹 프로그래밍 맛보기</title>
-        <description>&lt;p&gt;&lt;a href=&quot;https://blog.peddals.com/en/install-setup-django-pythonista3/&quot;&gt;Pythonista와 Djando 연결&lt;/a&gt;&lt;/p&gt; &lt;ul&gt; &lt;li&gt;HTTP (HyperText Transfer Protocol) : 웹브라우저와 서버 간의 데이터를 주고 받기 위한 일종의 규약&lt;/li&gt; &lt;li&gt;Request: 사용자가 웹 브라우저를 통해 서버에 전달하는 데이터&lt;/li&gt; &lt;li&gt;Response: request를 받아서...</description>
-        <pubDate>Wed, 25 Dec 2019 17:43:59 +0900</pubDate>
-        <link>https://jiminjeong22.github.io/python/2019/12/25/pypro-chap18.html</link>
-        <guid isPermaLink="true">https://jiminjeong22.github.io/python/2019/12/25/pypro-chap18.html</guid>
-        
-        <category>파이썬</category>
-        
-        <category>프로그래밍</category>
-        
-        
-        <category>Python</category>
         
       </item>
     
