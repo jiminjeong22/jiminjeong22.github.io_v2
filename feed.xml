@@ -5,12 +5,12 @@
     <description></description>
     <link>https://jiminjeong22.github.io/</link>
     <atom:link href="https://jiminjeong22.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 09 Mar 2020 23:21:32 +0900</pubDate>
-    <lastBuildDate>Mon, 09 Mar 2020 23:21:32 +0900</lastBuildDate>
+    <pubDate>Mon, 09 Mar 2020 23:23:58 +0900</pubDate>
+    <lastBuildDate>Mon, 09 Mar 2020 23:23:58 +0900</lastBuildDate>
     <generator>Jekyll v3.8.6</generator>
     
       <item>
-        <title>[혼공단 3기] Chapter 8. 배열</title>
+        <title>[혼공단 3기] 혼공C: Chapter 8. 배열</title>
         <description>&lt;h2 id=&quot;8-1-배열의-선언과-사용&quot;&gt;8-1. 배열의 선언과 사용&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;배열 array : 같은 형태의 많은 데이터를 반복문으로 처리하기 위해서 메모리에 연속적으로 저장해놓고 쪼개서 사용하는 방법 &lt;code class=&quot;highlighter-rouge&quot;&gt;자료형 배열명[요소 개수];&lt;/code&gt;&lt;/li&gt; &lt;li&gt; &lt;p&gt;배열 요소 element...</description>
         <pubDate>Sun, 08 Mar 2020 00:00:00 +0900</pubDate>
         <link>https://jiminjeong22.github.io/c/2020/03/08/chapter8.html</link>
@@ -38,7 +38,7 @@
       </item>
     
       <item>
-        <title>[혼공단 3기] Chapter 7. 함수</title>
+        <title>[혼공단 3기] 혼공C: Chapter 7. 함수</title>
         <description>&lt;h2 id=&quot;7-1-함수의-작성과-사용&quot;&gt;7-1. 함수의 작성과 사용&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;표준 라이브러리 함수: 프로그램에서 바로 사용할 수 있게 이미 구현되어 있는 함수 &lt;ol&gt; &lt;li&gt;함수 정의: 함수를 실제 코드로 만드는 것이며 기능을 구현한다&lt;/li&gt; &lt;li&gt;함수 호출:...</description>
         <pubDate>Fri, 28 Feb 2020 00:00:00 +0900</pubDate>
         <link>https://jiminjeong22.github.io/c/2020/02/28/chapter7.html</link>
@@ -52,7 +52,7 @@
       </item>
     
       <item>
-        <title>[혼공단 3기] Chapter 6. 반복문</title>
+        <title>[혼공단 3기] 혼공C: Chapter 6. 반복문</title>
         <description>&lt;h2 id=&quot;6-1-while문-for문-do-while문&quot;&gt;6-1. while문, for문, do-while문&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;반복문: 일정 조건을 만족하는 동안 같은 실행문을 반복하는 것 &lt;ol&gt; &lt;li&gt;while문: 조건을 먼저 들어보고, 만족한느 동안 실행문을 실행&lt;/li&gt; &lt;li&gt;for문: 초깃값을 최초 설정한 다음, 조건을...</description>
         <pubDate>Tue, 25 Feb 2020 00:00:00 +0900</pubDate>
         <link>https://jiminjeong22.github.io/c/2020/02/25/chapter6.html</link>
@@ -66,7 +66,7 @@
       </item>
     
       <item>
-        <title>[혼공단 3기] Chapter 5. 선택문 (if, switch ~ case)</title>
+        <title>[혼공단 3기] 혼공C: Chapter 5. 선택문 (if, switch ~ case)</title>
         <description>&lt;h2 id=&quot;5-1-if문&quot;&gt;5-1. if문&lt;/h2&gt; &lt;h3 id=&quot;if문의-기본-형식&quot;&gt;if문의 기본 형식&lt;/h3&gt; &lt;ul&gt; &lt;li&gt;if문은 중괄호 &lt;code class=&quot;highlighter-rouge&quot;&gt;{}&lt;/code&gt; 를 사용하고 들여쓰기하여 실행문을 구분하는 것이 좋다.&lt;/li&gt; &lt;li&gt;실행할 문장이 한줄인 경우 중괄호는 삭제할 수 있다, 하지만, 실행할 문장이...</description>
         <pubDate>Sun, 23 Feb 2020 00:00:00 +0900</pubDate>
         <link>https://jiminjeong22.github.io/c/2020/02/23/chapter5.html</link>
